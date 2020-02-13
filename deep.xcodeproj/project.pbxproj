@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		822FAC46236FDFDA00769E8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822FAC45236FDFDA00769E8D /* AppDelegate.swift */; };
 		822FAC48236FDFDA00769E8D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 822FAC47236FDFDA00769E8D /* art.scnassets */; };
-		822FAC4A236FDFDA00769E8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822FAC49236FDFDA00769E8D /* ViewController.swift */; };
+		822FAC4A236FDFDA00769E8D /* DeepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822FAC49236FDFDA00769E8D /* DeepViewController.swift */; };
 		822FAC4D236FDFDA00769E8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822FAC4B236FDFDA00769E8D /* Main.storyboard */; };
 		822FAC4F236FDFDC00769E8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 822FAC4E236FDFDC00769E8D /* Assets.xcassets */; };
 		822FAC52236FDFDC00769E8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822FAC50236FDFDC00769E8D /* LaunchScreen.storyboard */; };
+		82333F8023F4924A0053918D /* Deep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82333F7F23F4924A0053918D /* Deep.swift */; };
+		82333F8723F5BE9C0053918D /* DeepARScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82333F8623F5BE9C0053918D /* DeepARScene.swift */; };
+		82333F8D23F5BFBA0053918D /* DeepARViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82333F8C23F5BFBA0053918D /* DeepARViewDelegate.swift */; };
+		82333F9023F5C4DA0053918D /* ImpactFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82333F8F23F5C4DA0053918D /* ImpactFeedback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		822FAC42236FDFDA00769E8D /* deep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		822FAC45236FDFDA00769E8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		822FAC47236FDFDA00769E8D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		822FAC49236FDFDA00769E8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		822FAC49236FDFDA00769E8D /* DeepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepViewController.swift; sourceTree = "<group>"; };
 		822FAC4C236FDFDA00769E8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		822FAC4E236FDFDC00769E8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		822FAC51236FDFDC00769E8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		822FAC53236FDFDC00769E8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82333F7F23F4924A0053918D /* Deep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deep.swift; sourceTree = "<group>"; };
+		82333F8623F5BE9C0053918D /* DeepARScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepARScene.swift; sourceTree = "<group>"; };
+		82333F8C23F5BFBA0053918D /* DeepARViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepARViewDelegate.swift; sourceTree = "<group>"; };
+		82333F8F23F5C4DA0053918D /* ImpactFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactFeedback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +65,106 @@
 			isa = PBXGroup;
 			children = (
 				822FAC45236FDFDA00769E8D /* AppDelegate.swift */,
+				82333F8E23F5C4C50053918D /* Helpers */,
+				82333F8523F5BE850053918D /* Scene */,
+				82333F7E23F4923E0053918D /* Model */,
+				82333F8323F5BD840053918D /* Controller */,
+				82333F8223F5BD620053918D /* View */,
 				822FAC47236FDFDA00769E8D /* art.scnassets */,
-				822FAC49236FDFDA00769E8D /* ViewController.swift */,
-				822FAC4B236FDFDA00769E8D /* Main.storyboard */,
 				822FAC4E236FDFDC00769E8D /* Assets.xcassets */,
-				822FAC50236FDFDC00769E8D /* LaunchScreen.storyboard */,
 				822FAC53236FDFDC00769E8D /* Info.plist */,
 			);
 			path = deep;
+			sourceTree = "<group>";
+		};
+		82333F7E23F4923E0053918D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82333F7F23F4924A0053918D /* Deep.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		82333F8123F5BD520053918D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				822FAC4B236FDFDA00769E8D /* Main.storyboard */,
+				822FAC50236FDFDC00769E8D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		82333F8223F5BD620053918D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8123F5BD520053918D /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		82333F8323F5BD840053918D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8423F5BDE60053918D /* Deep */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		82333F8423F5BDE60053918D /* Deep */ = {
+			isa = PBXGroup;
+			children = (
+				822FAC49236FDFDA00769E8D /* DeepViewController.swift */,
+			);
+			path = Deep;
+			sourceTree = "<group>";
+		};
+		82333F8523F5BE850053918D /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8923F5BF8B0053918D /* Components */,
+				82333F8B23F5BFA30053918D /* Scenes */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		82333F8823F5BF800053918D /* Deep */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8623F5BE9C0053918D /* DeepARScene.swift */,
+			);
+			path = Deep;
+			sourceTree = "<group>";
+		};
+		82333F8923F5BF8B0053918D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8A23F5BF990053918D /* Deep */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		82333F8A23F5BF990053918D /* Deep */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8C23F5BFBA0053918D /* DeepARViewDelegate.swift */,
+			);
+			path = Deep;
+			sourceTree = "<group>";
+		};
+		82333F8B23F5BFA30053918D /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8823F5BF800053918D /* Deep */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		82333F8E23F5C4C50053918D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				82333F8F23F5C4DA0053918D /* ImpactFeedback.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +239,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				822FAC4A236FDFDA00769E8D /* ViewController.swift in Sources */,
+				82333F8023F4924A0053918D /* Deep.swift in Sources */,
+				822FAC4A236FDFDA00769E8D /* DeepViewController.swift in Sources */,
+				82333F9023F5C4DA0053918D /* ImpactFeedback.swift in Sources */,
+				82333F8D23F5BFBA0053918D /* DeepARViewDelegate.swift in Sources */,
+				82333F8723F5BE9C0053918D /* DeepARScene.swift in Sources */,
 				822FAC46236FDFDA00769E8D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
