@@ -80,7 +80,7 @@
 		82333F7E23F4923E0053918D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				82333F7F23F4924A0053918D /* Deep.swift */,
+				82DA662C23F719DB008E05A4 /* Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -165,6 +165,14 @@
 				82333F8F23F5C4DA0053918D /* ImpactFeedback.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		82DA662C23F719DB008E05A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				82333F7F23F4924A0053918D /* Deep.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -21,6 +21,7 @@ class DeepViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal, .vertical]
         sceneView.session.run(configuration)
     }
     
@@ -28,35 +29,14 @@ class DeepViewController: UIViewController {
         super.viewWillDisappear(animated)
         sceneView.session.pause()
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let local = touch.location(in: sceneView)
-            let objTouched = sceneView.hitTest(local, options: nil)
-            
-            if let deepTouched = objTouched.first {
-                let deep = deepTouched.node
-                for i in 0...4 {
-                    if deep.name == "Blackhole_\(i)" {
-                        sceneView.removeDeep()
-                        sceneView.addDeep()
-                        ImpactFeedback.shared.generateHeavy()
-                        break
-                    }
-                }
-                
-            }
-            
-        }
-    }
     
     // MARK: - SETUP
     func config() {
-        sceneView.showsStatistics = true
         configScene()
     }
     
     func configScene() {
         sceneView.config()
+        sceneView.debug()
     }
 }
