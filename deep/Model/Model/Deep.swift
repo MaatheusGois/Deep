@@ -38,25 +38,29 @@ class Deep: SCNNode {
 
       let x = Float.random(in: minimo...maximo) + minimo
       let y = Float.random(in: minimo...maximo) + minimo
-      let z = Float.random(in: 0...4) - 2
+      let z = Float.random(in: 0...2) - 1
      
-      position = SCNVector3(1, 1, 1)
+      position = SCNVector3(x, y, z)
     }
     
     func setupDeath(deathPosition: SCNVector3) {
         let moveAction = SCNAction.move(to: deathPosition, duration: 5)
         let addAction = SCNAction.run({ _ in
             if let parent = self.parent {
-                if let copyNode = self.copy() as? Deep {
-                    copyNode.removeAllActions()
-                    copyNode.setPosition()
-                    copyNode.setupDeath(deathPosition: parent.position)
-                    parent.addChildNode(copyNode)
+                if let copy = self.copy() as? Deep {
+                    copy.respawn(withParent: parent)
                 }
             }
         })
         let removeAction = SCNAction.removeFromParentNode()
         let sequence = SCNAction.sequence([moveAction, addAction, removeAction])
         runAction(sequence)
+    }
+    
+    func respawn(withParent parent: SCNNode) {
+        removeAllActions()
+        setPosition()
+        setupDeath(deathPosition: parent.position)
+        parent.addChildNode(self)
     }
 }

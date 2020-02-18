@@ -60,19 +60,13 @@ class DeepARScene: ARSCNView {
         }
         
     }
-    func removeDeep(deep: SCNNode) {
-        deep.removeFromParentNode()
-    }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let currentTouchLocation = touches.first?.location(in: self),
         let hitTestNode = hitTest(currentTouchLocation, options: nil).first?.node
         else { return }
-        if hitTestNode.name == "deep", let parent = hitTestNode.parent?.parent?.parent {
-            hitTestNode.removeAllActions()
-            removeDeep(deep: hitTestNode)
-            addDeep(node: parent)
+        if let deep = hitTestNode.parent?.parent as? Deep, let parent = deep.parent {
+            deep.respawn(withParent: parent)
             ImpactFeedback.shared.generateHeavy()
         }
     }
