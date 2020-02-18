@@ -34,21 +34,42 @@ class DeepARScene: ARSCNView {
         debugOptions = [.showFeaturePoints]
     }
     
+    func reset() {
+        session.pause()
+//        scene.rootNode.enumerateChildNodes { (node, stop) in
+//            node.removeFromParentNode()
+//        }
+        if let configuration = session.configuration {
+            session.run(configuration,
+                                  options: [.removeExistingAnchors,
+                                  .resetTracking])
+        }
+    }
+    
     func automaticallyLigh() {
         autoenablesDefaultLighting = true
         automaticallyUpdatesLighting = true
     }
     
     // MARK: - DEEP
-    func addDeep() {
+    func addDeep(deathPosition: SCNVector3) {
         let deep = Deep()
+//        deep.position = deathPosition
+//        deep.setupDeath(deathPosition: deathPosition)
         scene.rootNode.addChildNode(deep)
+    }
+    func updateDeep(deathPosition: SCNVector3) {
+        if let deep = scene.rootNode.childNode(withName: "deep", recursively: false) {
+            deep.position = deathPosition
+        }
+        
     }
     func removeDeep() {
         if let deep = scene.rootNode.childNode(withName: "deep", recursively: false) {
             deep.removeFromParentNode()
         }
     }
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first,
@@ -64,7 +85,7 @@ class DeepARScene: ARSCNView {
                 for i in 0...4 {
                     if deep.name == "Blackhole_\(i)" {
                         removeDeep()
-                        addDeep()
+//                        addDeep(deathPosition: <#SCNVector3#>)
                         ImpactFeedback.shared.generateHeavy()
                         break
                     }

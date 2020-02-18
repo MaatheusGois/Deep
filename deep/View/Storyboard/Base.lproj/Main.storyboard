@@ -18,12 +18,26 @@
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS" customClass="DeepARScene" customModule="deep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="redraw" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wbn-gB-w9S">
+                                <rect key="frame" x="342" y="74" width="42" height="42"/>
+                                <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <state key="normal" image="arrow.clockwise" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="BV1-FR-VrT" eventType="touchUpInside" id="sYW-GJ-PMt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Wbn-gB-w9S" firstAttribute="height" secondItem="BrB-h1-WRS" secondAttribute="height" multiplier="0.0487239" id="69X-A5-UvR"/>
+                            <constraint firstItem="Wbn-gB-w9S" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="30" id="706-ij-lzw"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="Wbn-gB-w9S" firstAttribute="width" secondItem="BrB-h1-WRS" secondAttribute="width" multiplier="0.101449" id="Zeg-Vz-m55"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="Wbn-gB-w9S" secondAttribute="trailing" constant="30" id="hZa-xR-RM4"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
@@ -34,7 +48,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
+    </resources>
 </document>

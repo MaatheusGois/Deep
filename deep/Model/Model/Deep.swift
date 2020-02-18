@@ -9,14 +9,12 @@
 import SceneKit
 
 class Deep: SCNNode {
-    
     override init() {
         super.init()
         loadModel()
         setPosition()
-        setupDeath()
     }
-    
+   
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -31,19 +29,18 @@ class Deep: SCNNode {
     }
 
     func setPosition() {
-//      let maximo:Float = 5.0
-//      let minimo:Float = -5.0
-//
-//      let eixoX = Float.random(in: minimo...maximo) + minimo
-//      let eixoY = Float.random(in: minimo...maximo) + minimo
-//      let eixoZ = Float.random(in: 0...4) - 2
+      let maximo:Float = 5.0
+      let minimo:Float = -5.0
+
+      let x = Float.random(in: minimo...maximo) + minimo
+      let y = Float.random(in: minimo...maximo) + minimo
+      let z = Float.random(in: 0...4) - 2
      
-      position = SCNVector3(1, 1, 1)
+      position = SCNVector3(x, y, z)
     }
     
-    func setupDeath() {
-        let initalPosition = SCNVector3(0, 0, 0)
-        let action = SCNAction.move(to: initalPosition, duration: 30)
+    func setupDeath(deathPosition: SCNVector3) {
+        let action = SCNAction.move(to: deathPosition, duration: 5)
         let actionRemove = SCNAction.removeFromParentNode()
         let sequence = SCNAction.sequence([action, actionRemove])
         runAction(sequence)

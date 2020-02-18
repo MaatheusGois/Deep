@@ -39,4 +39,8 @@ class DeepViewController: UIViewController {
         sceneView.config()
         sceneView.debug()
     }
+    // MARK: - Actions
+    @IBAction func reset(_ sender: Any) {
+        sceneView.reset()
+    }
 }
