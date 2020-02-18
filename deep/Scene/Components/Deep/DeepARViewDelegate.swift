@@ -24,7 +24,7 @@ class DeepARViewDelegate: NSObject, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-//        print("Atualizou plano")
+        print("Atualizou plano")
 //        updatePlane(planeAnchor: planeAnchor, node: node)
         
     }
@@ -45,9 +45,7 @@ class DeepARViewDelegate: NSObject, ARSCNViewDelegate {
         planeNode.position = SCNVector3(x, y, z)
         planeNode.eulerAngles.x = -.pi / 2
         
-        let deep = Deep()
-        deep.setupDeath(deathPosition: SCNVector3(x, y, z))
-        node.addChildNode(deep)
+        deepARScene?.addDeep(node: planeNode)
         node.addChildNode(planeNode)
     }
     

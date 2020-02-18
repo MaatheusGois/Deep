@@ -36,9 +36,6 @@ class DeepARScene: ARSCNView {
     
     func reset() {
         session.pause()
-//        scene.rootNode.enumerateChildNodes { (node, stop) in
-//            node.removeFromParentNode()
-//        }
         if let configuration = session.configuration {
             session.run(configuration,
                                   options: [.removeExistingAnchors,
@@ -52,11 +49,10 @@ class DeepARScene: ARSCNView {
     }
     
     // MARK: - DEEP
-    func addDeep(deathPosition: SCNVector3) {
+    func addDeep(node: SCNNode) {
         let deep = Deep()
-//        deep.position = deathPosition
-//        deep.setupDeath(deathPosition: deathPosition)
-        scene.rootNode.addChildNode(deep)
+        deep.setupDeath(deathPosition: node.position)
+        node.addChildNode(deep)
     }
     func updateDeep(deathPosition: SCNVector3) {
         if let deep = scene.rootNode.childNode(withName: "deep", recursively: false) {
@@ -64,35 +60,20 @@ class DeepARScene: ARSCNView {
         }
         
     }
-    func removeDeep() {
-        if let deep = scene.rootNode.childNode(withName: "deep", recursively: false) {
-            deep.removeFromParentNode()
-        }
+    func removeDeep(deep: SCNNode) {
+        deep.removeFromParentNode()
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first,
-            let hitTestTouch = hitTest(touch.location(in: self), types: .existingPlaneUsingExtent).first {
-            let local = touch.location(in: self)
-            let objTouched = hitTest(local, options: nil)
-            
-            //set anchor
-            let anchor = ARAnchor(transform: hitTestTouch.worldTransform)
-            session.add(anchor: anchor)
-            if let deepTouched = objTouched.first {
-                let deep = deepTouched.node
-                for i in 0...4 {
-                    if deep.name == "Blackhole_\(i)" {
-                        removeDeep()
-//                        addDeep(deathPosition: <#SCNVector3#>)
-                        ImpactFeedback.shared.generateHeavy()
-                        break
-                    }
-                }
-                
-            }
-            
+        guard let currentTouchLocation = touches.first?.location(in: self),
+        let hitTestNode = hitTest(currentTouchLocation, options: nil).first?.node
+        else { return }
+        if hitTestNode.name == "deep", let parent = hitTestNode.parent?.parent?.parent {
+            hitTestNode.removeAllActions()
+            removeDeep(deep: hitTestNode)
+            addDeep(node: parent)
+            ImpactFeedback.shared.generateHeavy()
         }
     }
 }
